@@ -24,6 +24,12 @@
   <strong>Subcategory:</strong>
   <%= @product.subcategory %>
 </p>
+<p>
+<strong>Images:</strong>
+<% @product.images.each do |x| %>
+<p><%= x.link %></p>
+<%end%>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

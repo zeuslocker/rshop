@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'cart/:id' => 'cart#add'
 
   resources :products
+  resources :images
   root 'page#home'
 
   get 'page/about'

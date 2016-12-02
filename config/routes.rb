@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   get '/cart' => 'cart#index'
   get 'cart/clear' => 'cart#clear'
-  get 'cart/:id' => 'cart#add'
+  get 'cart/:id' => 'cart#add', as: 'cart_add'
 
-  resources :products
-  resources :images
+  resources :products do
+    resources :comments
+  end
   root 'page#home'
 
   get 'page/about'

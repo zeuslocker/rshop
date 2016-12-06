@@ -17,7 +17,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category %>
+  <%= @product.category.title %>
 </p>
 
 <p>
@@ -32,7 +32,9 @@
 </p>
 <%= render 'comments' %>
 <p>
+  <% if user_signed_in? %>
 <%= render 'add_comment' %>
+<% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

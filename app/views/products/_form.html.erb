@@ -27,14 +27,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.label :category_type %>
+    <%= f.select :category_type, Category.all.map{|x| x.title}, {include_blank: false} %>
   </div>
-
   <div class="field">
     <%= f.label :subcategory %>
     <%= f.text_field :subcategory %>
   </div>
+
     <div class="field">
         <%= f.label :images_links %>
         <%= f.text_area :images_links %>

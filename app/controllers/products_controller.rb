@@ -16,7 +16,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    category = Category.find_by_title(product_params[:category_type])
+    @product = category.products.new(product_params)
     respond_to do |format|
       if @product.save
         product_params[:images_links].split(/[\r\n]+/).each{|x| @product.images.create!(link: x)}
@@ -28,6 +29,8 @@ class ProductsController < ApplicationController
   end
 
   def update
+    new_category = Category.find_by_title(product_params[:category_type])
+    @product.category = new_category
     respond_to do |format|
       if @product.update(product_params)
         @product.images.destroy_all
@@ -54,7 +57,7 @@ class ProductsController < ApplicationController
       end
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :category, :subcategory, :images_links)
+    params.require(:product).permit(:title, :description, :price, :category_type, :subcategory, :images_links)
   end
   
 end

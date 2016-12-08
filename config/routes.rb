@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get '/cart' => 'cart#index'
+  get '/cart' => 'cart#index', as: 'cart'
   get 'cart/clear' => 'cart#clear'
   get 'cart/:id' => 'cart#add', as: 'cart_add'
-
+  resources :categories
   resources :products do
     resources :comments
   end
-  root 'page#home'
+
+  root 'products#index'
 
   get 'page/about'
 

@@ -27,7 +27,7 @@
 <p>
 <strong>Images:</strong>
 <% @product.images.each do |x| %>
-<p><%= x.link %></p>
+<p><%= image_tag x.link, {style: "height: 393px; width: 590px;"} %></p>
 <%end%>
 </p>
 <%= render 'comments' %>

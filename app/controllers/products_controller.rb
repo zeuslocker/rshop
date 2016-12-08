@@ -53,8 +53,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
-     @product.images_links =  "".tap{|x| @product.images.each{|y| x << y.link+"\n"}}
-      end
+    @product.images_links =  "".tap{|x| @product.images.each{|y| x << y.link+"\n"}}
+    @product.category_type = @product.category.title
+  end
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_type, :subcategory, :images_links)

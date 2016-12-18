@@ -1,7 +1,46 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin-top: -26px;
+}
 .product_images_links{
-	height: 110px;
-	width: 400px;
+	height: 200px;
+}
+.product-box{
+    height: 600px;
+    text-align: center;
+}
+.product_images_links{
+
+}
+.price{
+  background-color: #fff3b5;
+  padding: 8px 8px 8px 40px;
+  text-decoration: none;
+  color: black;
+}
+.cart-ico{
+  height: 30px;
+
+}
+.add-cart-btn{
+  padding: 5px;
+}
+.link-pos{
+margin-right: 3px;
+}
+
+.carousel > .carousel-inner > .item > img{
+       height:430px;
+     }
+.carousel > .carousel-control{
+ height:430px;
+}
+.carousel > .carousel-inner > .item{
+    height:430px;
+  }
+.carousel{
+  height: 430px;
+  margin-bottom: 0px;
 }

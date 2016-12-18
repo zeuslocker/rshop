@@ -1,5 +1,5 @@
 class CreateProducts < ActiveRecord::Migration[5.0]
-    def change
+  def change
     create_table :products do |t|
       t.string :title
       t.text :description
@@ -8,5 +8,5 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :subcategory
       t.timestamps
     end
-  end
+end
 end

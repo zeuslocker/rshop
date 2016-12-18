@@ -2,7 +2,15 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-
+Rails.application.config.assets.precompile += %w(products.css)
+Rails.application.config.assets.precompile += %w(carousel.css)
+Rails.application.config.assets.precompile += %w(carousel.js)
+Rails.application.config.assets.precompile += %w(cart.css)
+Rails.application.config.assets.precompile += %w( categories.scss )
+Rails.application.config.assets.precompile += %w( products_show.css )
+# Rails.application.config.assets.precompile << "*.css"
+# or include them individually
+# Rails.application.config.assets.precompile += %w( users.css static_pages.css )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

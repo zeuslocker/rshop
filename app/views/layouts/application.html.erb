@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+<body class='<%= controller.controller_name %>'>
   <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
   <div class="row navbar-inner">
@@ -45,10 +45,10 @@
     </ul>
   </div>
   </nav>
-  <div id="main_wrap" class="container well">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div id="main_wrap" class="container">
+    <p class="notice" style="color: #0000"><%= notice %></p>
+    <p class="alert" style="color: #0000"><%= alert %></p>
     <%= yield %>
-    <div> 
+    <div>
   </body>
 </html>

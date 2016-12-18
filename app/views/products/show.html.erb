@@ -1,40 +1,63 @@
-<p id="notice"><%= notice %></p>
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'products' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+<%= stylesheet_link_tag 'products_show' %>
+<div class="card">
+      <div class="container-fliud">
+        <div class="wrapper row">
+          <div class="preview col-md-6">
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+            <div class="preview-pic tab-content">
+              <% @product.images.each_with_index do |f, i| %>
+                <div class="tab-pane<%if i == 0%> active<%end%>" id=<%="pic-#{i+1}"%>>
+                  <%= image_tag f.link %>
+                </div>
+              <%end%>
+            </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+            <ul class="preview-thumbnail nav nav-tabs">
+            <% @product.images.each_with_index do |f, i| %>
+                <% if i == 0 %>
+                <li class="active">
+                <%else%>
+                <li>
+                <%end%>
+                  <%= link_to '#', 'data-target': "#pic-#{i+1}", 'data-toggle': 'tab' do %>
+                    <%= image_tag f.link %>
+                  <%end%>
+                </li>
+              <%end%>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+            </ul>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category.title %>
-</p>
 
-<p>
-  <strong>Subcategory:</strong>
-  <%= @product.subcategory %>
-</p>
-<p>
-<strong>Images:</strong>
-<% @product.images.each do |x| %>
-<p><%= image_tag x.link, {style: "height: 393px; width: 590px;"} %></p>
-<%end%>
-</p>
-<%= render 'comments' %>
-<p>
-  <% if user_signed_in? %>
-<%= render 'add_comment' %>
-<% end %>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+          </div>
+          <div class="details col-md-6">
+            <h3 class="product-title"><%= @product.title %></h3>
+            <div class="rating">
+              <span class="review-no">41 reviews</span>
+            </div>
+            <p class="product-description"><%= @product.description %></p>
+            <h4 class="price">Цена:  <span>$<%= @product.price %></span></h4>
+            <h5 class="sizes">sizes:
+              <span class="size" data-toggle="tooltip" title="small">s</span>
+              <span class="size" data-toggle="tooltip" title="medium">m</span>
+              <span class="size" data-toggle="tooltip" title="large">l</span>
+              <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+            </h5>
+            <h5 class="colors">colors:
+              <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+              <span class="color green"></span>
+              <span class="color blue"></span>
+            </h5>
+            <div class="action">
+ <button type="button" class="btn btn-success add-cart-btn" style="text-decoration: none"><%= image_tag 'Add_to_Cart-512.png', class: 'cart-ico'%> В корзину
+                    </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

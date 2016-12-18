@@ -5,22 +5,20 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @product = Product.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     category = Category.find_by_title(product_params[:category_type])
     @product = category.products.new(product_params)
     respond_to do |format|
       if @product.save
-        product_params[:images_links].split(/[\r\n]+/).each{|x| @product.images.create!(link: x)}
+        product_params[:images_links].split(/[\r\n]+/).each { |x| @product.images.create!(link: x) }
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
       else
         format.html { render :new }
@@ -34,7 +32,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.update(product_params)
         @product.images.destroy_all
-        product_params[:images_links].split(/[\r\n]+/).each{|x| @product.images.create!(link: x)}
+        product_params[:images_links].split(/[\r\n]+/).each { |x| @product.images.create!(link: x) }
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
       else
         format.html { render :edit }
@@ -53,12 +51,11 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
-    @product.images_links =  "".tap{|x| @product.images.each{|y| x << y.link+"\n"}}
+    @product.images_links =  ''.tap { |x| @product.images.each { |y| x << y.link + "\n" } }
     @product.category_type = @product.category.title
   end
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_type, :subcategory, :images_links)
   end
-  
 end

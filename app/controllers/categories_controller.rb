@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_admin!, exept: [:show]
   before_action :set_category, only: [:show, :edit, :update]
   def index
     @caregories = Category.all
@@ -11,16 +12,18 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
   end
-  def edit
-  end
+
+  def edit; end
+
   def create
-     @category = Category.new(category_params)
+    @category = Category.new(category_params)
     if @category.save
       redirect_to root_path, notice: "Category #{@category.title} was created!"
     else
       render :new
     end
   end
+
   def update
     if @category.update(category_params)
       redirect_to root_path, notice: "Category #{@category.id} was updated!"
@@ -28,6 +31,7 @@ class CategoriesController < ApplicationController
       render :edit
     end
   end
+
   def category_params
     params.require(:category).permit(:title)
   end

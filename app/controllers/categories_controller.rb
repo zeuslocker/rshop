@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_admin!, exept: [:show]
+  before_action :authenticate_admin!, except: [:show]
   before_action :set_category, only: [:show, :edit, :update]
   def index
-    @caregories = Category.all
+    @categories = Category.all
   end
 
   def show

@@ -1,4 +1,3 @@
-<h1>New Product</h1>
 <div class="row">
   <div class="col-sm-4">
   <%= render '/admin_panel/vmenu' %>
@@ -28,7 +27,7 @@
             <%= f.price %>
           </td>
           <td>
-            <%= link_to 'show', @product %>
+            <%= link_to 'show', product_path(f) %>
           </td>
           <td>
             <%= link_to 'edit', edit_product_path(f) %>

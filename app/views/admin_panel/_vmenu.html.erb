@@ -1,33 +1,25 @@
 <%= stylesheet_link_tag 'admin_panel' %>
-
-
   <div class="side-menu">
   <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
       <div class="brand-wrapper">
-
           <div class="brand-name-wrapper">
-            <%= link_to 'Admin', admin_root_path, class: 'navbar-brand' %>
+            <%= link_to 'Admin  ', admin_root_path, class: 'navbar-brand' %>
           </div>
-
       </div>
-
   </div>
 
   <!-- Main Menu -->
   <div class="side-menu-container">
       <ul class="nav navbar-nav">
-
           <li><%= link_to 'Products', admin_products_path %></li>
-          <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
-
+          <li><%= link_to 'Categories', admin_categories_path %></li>
           <!-- Dropdown-->
           <li class="panel panel-default" id="dropdown">
               <a data-toggle="collapse" href="#dropdown-lvl1">
                   <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
               </a>
-
               <!-- Dropdown level 1 -->
               <div id="dropdown-lvl1" class="panel-collapse collapse">
                   <div class="panel-body">
@@ -55,9 +47,8 @@
                   </div>
               </div>
           </li>
-
           <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
-
+          <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
       </ul>
     </div>
       </nav>

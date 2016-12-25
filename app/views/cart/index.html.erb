@@ -26,6 +26,7 @@
 <% product = Product.find_by_id(id) %>
               <td data-th="Product">
                 <div class="row">
+                  <%= link_to product_path(product) do %>
                   <div class="col-sm-2 hidden-xs">
                   <%= image_tag product.images.first.link, class: 'img-responsive' %>
                   </div>
@@ -33,6 +34,7 @@
                     <h4 class="nomargin"><%= product.title %></h4>
                   <!--  <p>= #product.description </p> -->
                   </div>
+                  <%end%>
                 </div>
               </td>
               <td data-th="Price">$<%= product.price %></td>
@@ -57,7 +59,7 @@
             <tr>
               <td><%= link_to root_path, class: 'btn btn-warning' do%><i class="fa fa-angle-left"></i> Продолжить покупки<%end%></td>
               <td colspan="2" class="hidden-xs"></td>
-              <td class="hidden-xs text-center"><strong><%= "Total $#{total}" %></strong></td>
+              <td class="hidden-xs text-center"><strong><%= "Итог $#{total}" %></strong></td>
               <td><a href="#" class="btn btn-success btn-block">Оплатить <i class="fa fa-angle-right"></i></a></td>
             </tr>
           </tfoot>

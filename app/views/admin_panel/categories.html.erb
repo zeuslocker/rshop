@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'admin_panel' %>
+<div class="row">
+<div class="col-sm-4"
+<%= render 'admin_panel/vmenu' %>
+</div>
+<div class="col-sm-8">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <td>Title</td>
+        <td>Edit</td>
+          <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |f| %>
+    <td><%= link_to f.title, category_path(f) %></td>
+      <td><%= link_to 'edit', edit_category_path(f) %></td>
+        <td><%= link_to 'delete', category_path(f), method: :delete %></td>
+    <%end%>
+  </tbody>
+</table>
+</div>
+<div>

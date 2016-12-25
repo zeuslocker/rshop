@@ -4,8 +4,12 @@ gem 'rubocop'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'omniauth'
+git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
+  gem 'compass-core'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 4.2.7.1'
+gem 'walletone', '~> 0.3.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

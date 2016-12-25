@@ -18,7 +18,7 @@ class CartController < ApplicationController
     else
       session[:cart].delete(params[:id])
       redirect_to action: :index
-  end
+    end
   end
 
   def index

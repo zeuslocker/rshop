@@ -5,6 +5,7 @@ class AdminPanelController < ApplicationController
   def products
     @products = Product.all
   end
+
   def categories
     @categories = Category.all
   end

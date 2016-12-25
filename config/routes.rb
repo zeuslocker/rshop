@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  #mount WalletoneMiddleware.new => '/w1_callback'
+  # mount WalletoneMiddleware.new => '/w1_callback'
   devise_for :admins
   devise_for :users
 

@@ -4,6 +4,7 @@ gem 'rubocop'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'omniauth'
+gem 'simple_form'
 git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
   gem 'compass-core'
 end

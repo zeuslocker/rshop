@@ -1,13 +1,16 @@
 <%= stylesheet_link_tag 'admin_panel' %>
-  <div class="side-menu">
+  <div class="side-menu" style="margin-top: -30px;">
   <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
+
   <div class="navbar-header">
+      <%= link_to admin_root_path do %>
       <div class="brand-wrapper">
           <div class="brand-name-wrapper">
-            <%= link_to 'Admin  ', admin_root_path, class: 'navbar-brand' %>
+          <div class="navbar-brand">Admin</div>
           </div>
       </div>
+        <%end%>
   </div>
 
   <!-- Main Menu -->

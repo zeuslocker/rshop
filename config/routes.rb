@@ -1,6 +1,7 @@
+require_relative '../app/middleware/walletonemdw.rb'
 Rails.application.routes.draw do
   root 'products#index'
-  # mount WalletoneMiddleware.new => '/w1_callback'
+  mount WM => '/w1_callback'
   devise_for :admins
   devise_for :users
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
   end
+  
   get 'admin_panel/categories' => 'admin_panel#categories', as: :admin_categories
   get 'admin_panel/products' => 'admin_panel#products', as: :admin_products
   get '/cart' => 'cart#index', as: 'cart'
@@ -16,6 +18,4 @@ Rails.application.routes.draw do
   get '/admin_panel' => 'admin_panel#index', as: :admin_root
   get 'page/about'
   get 'page/contact'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

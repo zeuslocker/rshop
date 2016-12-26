@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
-
+ruby '2.3.1'
 gem 'rubocop'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'omniauth'
 gem 'simple_form'
+gem 'rails_12factor'
+
 git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
   gem 'compass-core'
 end

@@ -7,9 +7,9 @@ gem 'omniauth'
 gem 'simple_form'
 gem 'rails_12factor'
 
-git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
-  gem 'compass-core'
-end
+#git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
+#  gem 'compass-core'
+#end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.7.1'
 gem 'walletone', '~> 0.3.0'

@@ -6,7 +6,8 @@ gem 'bootstrap-sass'
 gem 'omniauth'
 gem 'simple_form'
 gem 'rails_12factor'
-
+gem 'newrelic_rpm'
+gem "dalli"
 #git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
 #  gem 'compass-core'
 #end

@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         product_params[:images_links].split(/[\r\n]+/).each { |x| @product.images.create!(link: x) }
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_products_path, notice: 'Product was successfully created.' }
       else
         format.html { render :new }
       end
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
       if @product.update(product_params)
         @product.images.destroy_all
         product_params[:images_links].split(/[\r\n]+/).each { |x| @product.images.create!(link: x) }
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to admin_products_path, notice: 'Product was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to admin_products_path, notice: 'Product was successfully destroyed.' }
     end
   end
 
@@ -57,6 +57,11 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :category_type, :subcategory, :images_links)
+    params.require(:product).permit(:title,
+                                    :description,
+                                    :price,
+                                    :category_type,
+                                    :subcategory,
+                                    :images_links)
   end
 end

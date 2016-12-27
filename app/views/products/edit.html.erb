@@ -1,6 +1,9 @@
-<h1>Editing Product</h1>
-
-<%= render 'form', product: @product %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+  <div class="col-sm-4">
+    <%= render '/admin_panel/vmenu' %>
+  </div>
+  <div class="col-sm-8">
+    <h1 class="text-center">Editing product</h1>
+    <%= render 'form', product: @product %>
+  </div>
+</div>

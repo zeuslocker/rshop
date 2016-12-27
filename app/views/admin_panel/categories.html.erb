@@ -17,9 +17,11 @@
   </thead>
   <tbody>
     <% @categories.each do |f| %>
+    <tr>
     <td><%= link_to f.title, category_path(f) %></td>
       <td><%= link_to 'edit', edit_category_path(f) %></td>
         <td><%= link_to 'delete', category_path(f), method: :delete %></td>
+        <tr>
     <%end%>
   </tbody>
 </table>

@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :category
-  validates :title, presence: true, length: { in: 2..40 }
+  validates :title, presence: true, length: { in: 2..100 }
   validates :description, presence: true, length: { minimum: 2 }
   validates :price, presence: true
 end

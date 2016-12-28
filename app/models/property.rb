@@ -1,4 +1,4 @@
 class Property < ApplicationRecord
   validates :name, presence: true
-  validates :values, presence: true
+  validates :value, presence: true
 end

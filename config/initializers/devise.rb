@@ -2,6 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.scoped_views = true
+  config.secret_key = 'd9acaf62f1e69631cd14be3873d764c583d0eea55a2b591078f41a492a70010507d2c9709390387960838aa4dca613acdde0bf0a4a9f7a8e0ff573b47aedfb2a'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: rshop_production
-  username: rshop
-  password: <%= ENV['RSHOP_DATABASE_PASSWORD'] %>
+  database: rshop_development

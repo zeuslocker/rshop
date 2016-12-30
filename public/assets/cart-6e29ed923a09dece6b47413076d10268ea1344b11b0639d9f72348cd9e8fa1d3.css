@@ -1,0 +1,64 @@
+/* line 4, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+.table > tbody > tr > td, .table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+  /* line 8, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart tbody td .form-control {
+    width: 20%;
+    display: inline !important;
+  }
+
+  /* line 12, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  .actions .btn {
+    width: 36%;
+    margin: 1.5em 0;
+  }
+
+  /* line 17, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  .actions .btn-info {
+    float: left;
+  }
+
+  /* line 20, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  .actions .btn-danger {
+    float: right;
+  }
+
+  /* line 24, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart thead {
+    display: none;
+  }
+
+  /* line 25, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart tbody td {
+    display: block;
+    padding: .6rem;
+    min-width: 320px;
+  }
+
+  /* line 26, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart tbody tr td:first-child {
+    background: #333;
+    color: #fff;
+  }
+
+  /* line 27, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart tbody td:before {
+    content: attr(data-th);
+    font-weight: bold;
+    display: inline-block;
+    width: 8rem;
+  }
+
+  /* line 34, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart tfoot td {
+    display: block;
+  }
+
+  /* line 35, /home/zeus/rshop/app/assets/stylesheets/cart.scss */
+  table#cart tfoot td .btn {
+    display: block;
+  }
+}

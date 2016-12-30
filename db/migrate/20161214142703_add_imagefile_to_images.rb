@@ -1,4 +1,4 @@
-class AddImagefileToImages < ActiveRecord::Migration[5.0]
+class AddImagefileToImages < ActiveRecord::Migration
   def change
     add_column :images, :image_file, :string
   end

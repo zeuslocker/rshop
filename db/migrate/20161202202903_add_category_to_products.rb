@@ -1,4 +1,4 @@
-class AddCategoryToProducts < ActiveRecord::Migration[5.0]
+class AddCategoryToProducts < ActiveRecord::Migration
   def change
     add_reference :products, :category, foreign_key: true
   end

@@ -60,7 +60,12 @@
               <td><%= link_to root_path, class: 'btn btn-warning' do%><i class="fa fa-angle-left"></i> Продолжить покупки<%end%></td>
               <td colspan="2" class="hidden-xs"></td>
               <td class="hidden-xs text-center"><strong><%= "Итог $#{total}" %></strong></td>
-              <td><a href="#" class="btn btn-success btn-block">Оплатить <i class="fa fa-angle-right"></i></a></td>
+              <td>
+              <%= form_tag pay_order_path(price: total), method: :post do %>
+                <%= submit_tag 'Оплатить', class: 'class="btn btn-success btn-block"' %>
+                <%end%>
+                </td>
+
             </tr>
           </tfoot>
         </table>

@@ -6,15 +6,14 @@
 <input type="hidden" name="WMI_MERCHANT_ID"      value=<%="#{@payment.WMI_MERCHANT_ID}"%> />
   <input type="hidden" name="WMI_PAYMENT_AMOUNT" value=<%="#{@payment.WMI_PAYMENT_AMOUNT}"%> />
   <input type="hidden" name="WMI_CURRENCY_ID"    value=<%="#{@payment.WMI_CURRENCY_ID}"%> />
-  <input type="hidden" name="WMI_DESCRIPTION"    value=<%="#{@payment.WMI_DESCRIPTION}"%> />
+  <input type="hidden" name="WMI_DESCRIPTION"    value="<%=@payment.WMI_DESCRIPTION%>" />
   <input type="hidden" name="WMI_AUTO_LOCATION"  value="1" />
   <input type="hidden" name="WMI_CULTURE_ID"     value=<%="#{@payment.WMI_CULTURE_ID}"%> />
-<%= submit_tag 'submit' %>
+<%= submit_tag 'submit', type: 'hidden' %>
 <%end%>
-
 </div>
 <script type="text/javascript">
     window.onload=function(){
-         document.forms["w1Form"].submit();
+          document.forms["w1Form"].submit();
     }
 </script>

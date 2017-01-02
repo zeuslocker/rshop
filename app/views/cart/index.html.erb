@@ -62,7 +62,7 @@
               <td class="hidden-xs text-center"><strong><%= "Итог $#{total}" %></strong></td>
               <td>
               <%= form_tag pay_order_path(price: total), method: :post do %>
-                <%= submit_tag 'Оплатить', class: 'class="btn btn-success btn-block"' %>
+                <%= submit_tag 'Оплатить', class: 'btn btn-success btn-block' %>
                 <%end%>
                 </td>
 

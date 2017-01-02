@@ -13,11 +13,11 @@ def create
     SOME_CUSTOM_FIELD:  'value'
   )
   @payment.sign! WALLETONE_SECRET_KEY
-#  uri = URI.parse('https://wl.walletone.com/checkout/checkout/Index')
-#  response = Net::HTTP.post_form(uri, @payment.to_h)
+  uri = URI.parse('https://wl.walletone.com/checkout/checkout/Index')
+  response = Net::HTTP.post_form(uri, @payment.to_h)
 #  p 'hjgjhgffffffjhjj'+@payment.WMI_AUTO_LOCATION
-# payment_uri = 'https://wl.walletone.com'+response.to_hash.fetch('location')[0]
-# redirect_to payment_uri
-render partial: 'form', locals: {payment: @payment}
+ payment_uri = 'https://wl.walletone.com'+response.to_hash.fetch('location')[0]
+ redirect_to payment_uri
+#render partial: 'form', locals: {payment: @payment}
 end
 end

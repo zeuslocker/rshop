@@ -1,9 +1,20 @@
-sdfsdfsd
-<%= form_tag 'https://wl.walletone.com/checkout/checkout/Index', method: :post do %>
-<input type="hidden" name="WMI_MERCHANT_ID"      value=<%="#{payment.WMI_MERCHANT_ID}"%> />
-  <input type="hidden" name="WMI_PAYMENT_AMOUNT" value=<%="#{payment.WMI_PAYMENT_AMOUNT}"%> />
-  <input type="hidden" name="WMI_CURRENCY_ID"    value=<%="#{payment.WMI_CURRENCY_ID}"%> />
-  <input type="hidden" name="WMI_DESCRIPTION"    value="Оплата демонстрационного заказа" />
+<%= stylesheet_link_tag params[:controller] %>
+
+  <div class="vcenter">
+<h2>Переправляю...</h2>
+<%= form_tag 'https://wl.walletone.com/checkout/checkout/Index',id: 'w1Form', method: :post do %>
+<input type="hidden" name="WMI_MERCHANT_ID"      value=<%="#{@payment.WMI_MERCHANT_ID}"%> />
+  <input type="hidden" name="WMI_PAYMENT_AMOUNT" value=<%="#{@payment.WMI_PAYMENT_AMOUNT}"%> />
+  <input type="hidden" name="WMI_CURRENCY_ID"    value=<%="#{@payment.WMI_CURRENCY_ID}"%> />
+  <input type="hidden" name="WMI_DESCRIPTION"    value=<%="#{@payment.WMI_DESCRIPTION}"%> />
+  <input type="hidden" name="WMI_AUTO_LOCATION"  value="1" />
+  <input type="hidden" name="WMI_CULTURE_ID"     value=<%="#{@payment.WMI_CULTURE_ID}"%> />
 <%= submit_tag 'submit' %>
 <%end%>
-<%="#{payment.WMI_PAYMENT_AMOUNT}"%>
+
+</div>
+<script type="text/javascript">
+    window.onload=function(){
+         document.forms["w1Form"].submit();
+    }
+</script>

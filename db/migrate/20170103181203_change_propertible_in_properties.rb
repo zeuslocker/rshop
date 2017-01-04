@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ChangePropertibleInProperties < ActiveRecord::Migration
   def change
     remove_reference :properties, :propertible, polymorphic: true

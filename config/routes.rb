@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../app/middleware/walletonemdw.rb'
 Rails.application.routes.draw do
   root 'products#index'

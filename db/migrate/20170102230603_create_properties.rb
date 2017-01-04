@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateProperties < ActiveRecord::Migration
   def change
     create_table :properties do |f|

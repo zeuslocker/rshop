@@ -1,9 +1,15 @@
+<p class="alert">
+<% @product.errors.full_messages.each do |msg| %>
+        <%= "#{msg};" %>
+      <% end %>
+    </p>
 <%= simple_form_for @product do |f| %>
 <%= f.input :title, autofocus: true %>
 <%= f.input :description, input_html: {rows: 6} %>
 <%= f.input :price, hint: 'Only numbers', input_html: {min: 0, step: 'any'} %>
 <%= f.input :category_type, collection: Category.all.map(&:title), include_blank: false %>
 <%= f.input :images_links, as: :text, input_html: {style: 'resize: none', rows: 5} %>
+<%= f.input :property_data, as: :text, hint: 'name title value', input_html: {style: 'resize: none', rows: 5} %>
 <%= f.input :subcategory %>
 <%= f.button :submit, class: 'btn btn-success' %>
 <%end%>

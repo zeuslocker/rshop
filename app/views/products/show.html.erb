@@ -42,38 +42,52 @@
             </div>
             <p class="product-description"><%= @product.description %></p>
             <h4 class="price">Цена:  <span>$<%= @product.price %></span></h4>
+             <% if @product.properties.where(name: 'color').any? %>
+             <h5 class="colors">
+               <div class="row">
+               <div class="col-sm-1 mt-5">
+               colors:
+              </div>
+              <div class="col-sm-11">
+               <% @product.properties.where(name: 'color').each do |f| %>
+               <% if f.value.to_i == @product.id %>
+                 <%= link_to product_path(f.value.to_i), class: 'c-active', style: 'background:'+"#{f.title}"  do %>
+                   <span></span>
+                 <%end%>
+               <%else%>
+               <%= link_to product_path(f.value.to_i), class: 'color', style: 'background:'+"#{f.title}" do %>
+                 <span></span>
+               <%end%>
+               <%end%>
+               <%end%>
+               </div>
+               </div>
+             </h5>
 
-            <% if @product.properties.where(name: 'color').any? %>
-            <h5 class="colors">colors:
-              <% @product.properties.where(name: 'color').each do |f| %>
-              <% if f.value.to_i == @product.id %>
-                <%= link_to product_path(f.value.to_i), class: 'active-border' do %>
-                  <span class="color" style= "<%= "background: #{f.title}; margin: 0" %>" ></span>
-                <%end%>
-              <%else%>
-              <%= link_to product_path(f.value.to_i) do %>
-                <span class="color" style= "<%= "background: #{f.title};" %>" ></span>
-              <%end%>
-              <%end%>
-              <%end%>
-            </h5>
-            <%end%>
+             <%end%>
+
 
             <% if @product.properties.where.not(name: 'color').any? %>
               <% @product.properties.where.not(name: 'color').to_a.uniq(&:name).each do |f| %>
-                <h5 class="sizes"><%= f.name %>:
+                <h5 class="sizes">
+                  <div class="row">
+                  <div class="col-sm-1 mt-5">
+                      <%= f.name %>:
+                    </div>
+                    <div class="col-sm-11">
                   <% @product.properties.where(name: f.name).each do |x| %>
                     <% if x.value.to_i == @product.id %>
-                      <%= link_to product_path(x.value.to_i) do %>
-                        <span class="size" style= "<%= 'border: 4px double black;' if x.value.to_i == @product.id %>" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
+                      <%= link_to product_path(x.value.to_i), class: 'c-active' do %>
+                        <span class="size" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
                       <%end%>
                     <%else%>
-                      <%= link_to product_path(x.value.to_i) do %>
+                      <%= link_to product_path(x.value.to_i), class: 'color' do %>
                         <span class="size" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
                       <%end%>
                     <%end%>
                   <%end%>
-                </h5>
+                </div>
+              </h5>
               <%end%>
             <%end%>
 

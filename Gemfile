@@ -7,8 +7,8 @@ gem 'omniauth'
 gem 'simple_form'
 gem 'rails_12factor'
 gem 'newrelic_rpm'
-gem "dalli"
-
+gem 'dalli'
+gem 'seed_dump'
 #git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
 #  gem 'compass-core'
 #end
@@ -45,6 +45,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

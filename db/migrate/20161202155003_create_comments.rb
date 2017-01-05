@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |f|

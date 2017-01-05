@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class AdminPanelController < ApplicationController
   before_action :authenticate_admin!
   def index; end
@@ -6,7 +5,7 @@ class AdminPanelController < ApplicationController
   def products
     @products = Product.all
   end
-
+  
   def categories
     @categories = Category.all
   end

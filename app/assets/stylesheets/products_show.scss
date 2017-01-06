@@ -5,11 +5,20 @@ body {
   overflow-x: hidden; }
 
 .tab-pane{
+  line-height: 25em;
   text-align: center;
+  width: 500px;
+  height: 400px;
 }
 .mt-5{
   margin-top: 5px;
 }
+ .slider-image{
+    vertical-align: middle;
+  max-width: 500px;
+  max-height: 400px;
+  margin: auto;
+ }
 .preview {
   display: -webkit-box;
   display: -webkit-flex;
@@ -34,7 +43,6 @@ body {
   border: none;
   margin-top: 15px;}
   .preview-thumbnail.nav-tabs li {
-    margin-right: 2.5%;
     height: 100%;
     padding: auto;}
     .preview-thumbnail.nav-tabs li img {

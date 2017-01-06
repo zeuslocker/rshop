@@ -1,0 +1,59 @@
+/* line 4, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+body {
+  margin-top: -26px;
+}
+
+/* line 7, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.product_images_links {
+  height: 200px;
+}
+
+/* line 10, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.product-box {
+  height: 320px;
+  text-align: center;
+}
+
+/* line 17, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.price {
+  background-color: #fff3b5;
+  padding: 8px 8px 8px 40px;
+  text-decoration: none;
+  color: black;
+}
+
+/* line 23, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.cart-ico {
+  height: 30px;
+}
+
+/* line 27, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.add-cart-btn {
+  padding: 5px;
+}
+
+/* line 30, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.link-pos {
+  margin-right: 3px;
+}
+
+/* line 34, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.carousel > .carousel-inner > .item > img {
+  height: 430px;
+}
+
+/* line 37, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.carousel > .carousel-control {
+  height: 430px;
+}
+
+/* line 40, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.carousel > .carousel-inner > .item {
+  height: 430px;
+}
+
+/* line 43, /home/zeus/rshop/app/assets/stylesheets/products.scss */
+.carousel {
+  height: 430px;
+  margin-bottom: 0px;
+}

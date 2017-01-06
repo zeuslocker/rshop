@@ -21,9 +21,9 @@
             <ul class="preview-thumbnail nav nav-tabs">
             <% @product.images.each_with_index do |f, i| %>
                 <% if i == 0 %>
-                <li class="active" style=" width: <%= 90.0/@product.images.count %>%">
+                <li class="active" style=" width: <%= 90.0/@product.images.count %>%;margin-right: <%= 10.0/@product.images.count %>%">
                 <%else%>
-                <li style=" width: <%= 90.0/@product.images.count %>%">
+                <li style=" width: <%= 90.0/@product.images.count %>%;margin-right: <%= 10.0/@product.images.count %>%">
                 <%end%>
                   <%= link_to '#', 'data-target': "#pic-#{i+1}", 'data-toggle': 'tab' do %>
                   <%= image_tag f.link %>

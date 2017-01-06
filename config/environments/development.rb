@@ -1,7 +1,7 @@
 Rails.application.configure do
 
   config.cache_classes = false
-config.cache_store = :dalli_store
+  config.cache_store = :dalli_store
   config.eager_load = false
   config.consider_all_requests_local = true
   config.action_mailer.raise_delivery_errors = false

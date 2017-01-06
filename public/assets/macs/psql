@@ -1,0 +1,51 @@
+sudo apt-get remove --purge postgresql-9.6
+sudo apt-get install postgresql-9.6
+
+
+<%= simple_form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.input :title %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :category_type %>
+    <%= f.select :category_type, Category.all.map{|x| x.title}, {include_blank: false} %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :subcategory %>
+    <%= f.text_field :subcategory %>
+  </div>
+<br>
+    <div class="field">
+        <%= f.label :images_links %>
+        <%= f.text_area :images_links %>
+    </div>
+    <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

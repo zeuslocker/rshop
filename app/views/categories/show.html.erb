@@ -6,7 +6,7 @@
          <%end%>
             <div class="col-sm-3 product-box">
                 <%= link_to product do %>
-                    <%= image_tag product.images.first.link, class: 'product_images_links' %><br>
+                    <%= image_tag product.images.first.link, class: 'product_images_links' if (!product.images.first.nil?) %><br>
                     <%= "#{product.title}" %>
                 <%end%><br>
                 <%= link_to cart_add_path(product), class: 'link-pos' do %>

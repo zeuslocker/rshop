@@ -9,7 +9,7 @@
          <%end%>
             <div class="col-sm-3 product-box">
                 <%= link_to product do %>
-                    <%= image_tag product.images.first.link, class: 'product_images_links' %><br>
+                    <%= image_tag(product.images.first.link, class: 'product_images_links') if (!product.images.first.nil?) %><br>
                     <div style="height: 20px">
                       <%= "#{product.title}" %>
                     </div>

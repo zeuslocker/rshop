@@ -15,12 +15,13 @@ class ProductsController < ApplicationController
   def edit; end
 
   def create
+    Product.transaction do
     category = Category.find_by_title(product_params[:category_type])
     property_data = product_params[:property_data].split
     @product = category.products.new(product_params)
     property_data.each_slice(3) do |x|
       if x[2] == 'current'
-        @product.properties.new(name: x[0], title: x[1], value: @product.id)
+        @product.properties.new(name: x[0], title: x[1], value: Product.last.id+1)
       else
         @product.properties.new(name: x[0], title: x[1], value: x[2])
       end
@@ -35,6 +36,7 @@ class ProductsController < ApplicationController
         flash[:notice] = "#{@product.errors.messages}"
         format.html { render :new }
       end
+    end
     end
   end
 

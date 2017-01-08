@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :similar]
 
   def index
     @products = Product.all
@@ -14,57 +14,80 @@ class ProductsController < ApplicationController
 
   def edit; end
 
+  def similar
+    @product = @product.dup
+  end
+
   def create
     Product.transaction do
-    category = Category.find_by_title(product_params[:category_type])
-    property_data = product_params[:property_data].split
-    @product = category.products.new(product_params)
-    property_data.each_slice(3) do |x|
-      if x[2] == 'current'
-        @product.properties.new(name: x[0], title: x[1], value: Product.last.id+1)
-      else
-        @product.properties.new(name: x[0], title: x[1], value: x[2])
+      category = Category.find_by_title(product_params[:category_type])
+      property_data = product_params[:property_data].split
+      @product = category.products.new(product_params)
+      property_data.each_slice(3) do |x|
+        if x[2] == 'current'
+          @product.properties.new(name: x[0], title: x[1], value: Product.last.id+1)
+        elsif x[2] == 'each'
+          
+        else
+          @product.properties.new(name: x[0], title: x[1], value: x[2])
+        end
       end
-    end
-    product_params[:images_links].split(/[\r\n]+/).each do |x|
-      @product.images.new(link: x)
-    end
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to admin_products_path }
-      else
-        flash[:notice] = "#{@product.errors.messages}"
-        format.html { render :new }
+      product_params[:images_links].split(/[\r\n]+/).each do |x|
+        @product.images.new(link: x)
       end
-    end
+      respond_to do |format|
+        if @product.save
+          @product.properties.map(&:value).delete_if{|x| x.to_i == @product.id}.each do |x|
+            p = Product.find_by_id(x.to_i)
+            p.properties.destroy_all
+            @product.properties.each do |f|
+              p.properties.create(name: f.name, title: f.title, value: f.value)
+            end
+          end
+          format.html { redirect_to admin_products_path }
+        else
+          flash[:notice] = "#{@product.errors.messages}"
+          format.html { render :new }
+        end
+      end
     end
   end
 
   def update
-    new_category = Category.find_by_title(product_params[:category_type])
-    @product.category = new_category
-    @product.properties.destroy_all
-    property_data = product_params[:property_data].split
-    property_data.each_slice(3) do |x|
-      if x[2] == 'current'
-        @product.properties.new(name: x[0], title: x[1], value: @product.id)
-      else
-        @product.properties.new(name: x[0], title: x[1], value: x[2])
+    Product.transaction do
+      new_category = Category.find_by_title(product_params[:category_type])
+      @product.category = new_category
+      @product.properties.destroy_all
+      property_data = product_params[:property_data].split
+      property_data.each_slice(3) do |x|
+        if x[2] == 'current'
+          @product.properties.new(name: x[0], title: x[1], value: @product.id)
+        else
+          @product.properties.new(name: x[0], title: x[1], value: x[2])
+        end
       end
-    end
-    @product.images.destroy_all
-    product_params[:images_links].split(/[\r\n]+/).each do |x|
-      @product.images.new(link: x)
-    end
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to admin_products_path }
-      else
-        flash[:alert] = "#{@product.errors.messages}"
-        format.html { render :edit }
+      @product.images.destroy_all
+      product_params[:images_links].split(/[\r\n]+/).each do |x|
+        @product.images.new(link: x)
+      end
+      respond_to do |format|
+        if @product.update(product_params)
+          @product.properties.map(&:value).delete_if{|x| x.to_i == @product.id}.each do |x|
+            p = Product.find_by_id(x.to_i)
+            p.properties.destroy_all
+            @product.properties.each do |f|
+              p.properties.create(name: f.name, title: f.title, value: f.value)
+            end
+          end
+          format.html { redirect_to admin_products_path }
+        else
+          flash[:alert] = "#{@product.errors.messages}"
+          format.html { render :edit }
+        end
       end
     end
   end
+
 
   def destroy
     @product.destroy

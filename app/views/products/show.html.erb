@@ -65,7 +65,7 @@
 
            <% if @product.properties.where.not(name: 'color').any? %>
              <% @product.properties.where.not(name: 'color').to_a.uniq(&:name).each do |f| %>
-               <h5 class="sizes">
+               <h5 class="sizes" style="margin-top:-10px">
                  <div class="row">
                  <div class="col-sm-2 mt-5">
                      <%= f.name %>:
@@ -73,11 +73,11 @@
                    <div class="col-sm-10">
                  <% @product.properties.where(name: f.name).each do |x| %>
                    <% if x.value.to_i == @product.id %>
-                     <%= link_to product_path(x.value.to_i), class: 'c-active' do %>
+                     <%= link_to product_path(x.value.to_i), class: 'proper-box-active' do %>
                        <span class="size" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
                      <%end%>
                    <%else%>
-                     <%= link_to product_path(x.value.to_i), class: 'color' do %>
+                     <%= link_to product_path(x.value.to_i), class: 'proper-box' do %>
                        <span class="size" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
                      <%end%>
                    <%end%>

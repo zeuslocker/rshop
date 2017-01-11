@@ -26,8 +26,6 @@ class ProductsController < ApplicationController
       property_data.each_slice(3) do |x|
         if x[2] == 'current'
           @product.properties.new(name: x[0], title: x[1], value: Product.last.id+1)
-        elsif x[2] == 'each'
-          
         else
           @product.properties.new(name: x[0], title: x[1], value: x[2])
         end
@@ -37,13 +35,6 @@ class ProductsController < ApplicationController
       end
       respond_to do |format|
         if @product.save
-          @product.properties.map(&:value).delete_if{|x| x.to_i == @product.id}.each do |x|
-            p = Product.find_by_id(x.to_i)
-            p.properties.destroy_all
-            @product.properties.each do |f|
-              p.properties.create(name: f.name, title: f.title, value: f.value)
-            end
-          end
           format.html { redirect_to admin_products_path }
         else
           flash[:notice] = "#{@product.errors.messages}"
@@ -72,13 +63,6 @@ class ProductsController < ApplicationController
       end
       respond_to do |format|
         if @product.update(product_params)
-          @product.properties.map(&:value).delete_if{|x| x.to_i == @product.id}.each do |x|
-            p = Product.find_by_id(x.to_i)
-            p.properties.destroy_all
-            @product.properties.each do |f|
-              p.properties.create(name: f.name, title: f.title, value: f.value)
-            end
-          end
           format.html { redirect_to admin_products_path }
         else
           flash[:alert] = "#{@product.errors.messages}"

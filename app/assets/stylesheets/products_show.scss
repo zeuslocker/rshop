@@ -108,6 +108,7 @@ body {
   text-transform: capitalize;
   float: left;
   height: 50px;
+  margin-bottom: 7px;
 }
 
 .checked, .price span {
@@ -150,6 +151,39 @@ body {
   border: 1px solid #7db106;
   }
 
+  .proper-box {
+    text-align:center;
+    float: left;
+    display: inline-block;
+    text-decoration: none;
+    min-width: 50px;
+    min-height: 26px;
+    border: 1px solid #6a6464;
+    border-radius: 5px;
+    padding: 6px 7px 3px 6px;
+    -webkit-box-sizing: border-box;
+    margin: 0px 8px 6px 0px;
+    transition: all 0s ease !important; }
+    .proper-box:hover{
+    border: 1px solid #7db106;
+    }
+    .proper-box-active{
+      text-align:center;
+      float: left;
+      display: inline-block;
+      text-decoration: none;
+      min-width: 50px;
+      min-height: 26px;
+      border-radius: 5px;
+      padding: 6px 7px 3px 6px;
+      -webkit-box-sizing: border-box;
+      margin: 0px 8px 6px 0px;
+      border: 2px solid #7db106;
+      padding: 5px 6px 2px 5px;
+      transition: all 0s ease !important;
+      background-size: 28px 26px;
+      background-position: -1px -1px !important;
+    }
 
 .add-to-cart, .like {
   background: #ff9f1a;

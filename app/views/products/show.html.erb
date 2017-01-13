@@ -47,12 +47,12 @@
             <span>colors:</span>
              </div>
              <div class="col-sm-10 col-md-10">
-              <% @product.properties.where(name: 'color').each do |f| %>
-              <% if f.value.to_i == @product.id %>
+              <% @product.product_group.properties.where(name: 'color').to_a.uniq(&:title).each do |f| %>
+              <% if f.title == @product.properties.where(name: 'color').take.title %>
                 <%= link_to product_path(f.value.to_i), class: 'c-active', style: 'background:'+"#{f.title}"  do %>
                 <%end%>
-              <%else%>
-              <%= link_to product_path(f.value.to_i), class: 'color', style: 'background:'+"#{f.title}" do %>
+              <%elsif @product.product_group.find_product(properties: @product.properties, element: f) != -1 %>
+              <%= link_to product_path(@product.product_group.find_product(properties: @product.properties, element: f)), class: 'color', style: 'background:'+"#{f.title}" do %>
               <%end%>
               <%end%>
               <%end%>
@@ -63,21 +63,21 @@
             <%end%>
 
 
-           <% if @product.properties.where.not(name: 'color').any? %>
-             <% @product.properties.where.not(name: 'color').to_a.uniq(&:name).each do |f| %>
+           <% if @product.product_group.properties.where.not(name: 'color').any? %>
+             <% @product.product_group.properties.where.not(name: 'color').to_a.uniq(&:name).each do |f| %>
                <h5 class="sizes" style="margin-top:-10px">
                  <div class="row">
                  <div class="col-sm-2 mt-5">
                      <%= f.name %>:
                    </div>
                    <div class="col-sm-10">
-                 <% @product.properties.where(name: f.name).each do |x| %>
-                   <% if x.value.to_i == @product.id %>
+                 <% @product.product_group.properties.where(name: f.name).to_a.uniq(&:title).each do |x| %>
+                   <% if x.title == @product.properties.where(name: x.name).take.title %>
                      <%= link_to product_path(x.value.to_i), class: 'proper-box-active' do %>
-                       <span class="size" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
+                       <span data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
                      <%end%>
-                   <%else%>
-                     <%= link_to product_path(x.value.to_i), class: 'proper-box' do %>
+                   <%elsif @product.product_group.find_product(properties: @product.properties, element: x) != -1  %>
+                     <%= link_to product_path(@product.product_group.find_product(properties: @product.properties, element: x)), class: 'proper-box' do %>
                        <span class="size" data-toggle="tooltip" title="<%= x.title %>"><%= x.title %></span>
                      <%end%>
                    <%end%>

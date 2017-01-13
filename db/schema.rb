@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103181203) do
+ActiveRecord::Schema.define(version: 20170111154803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 20170103181203) do
     t.datetime "updated_at"
   end
 
+  create_table "product_groups", force: :cascade do |t|
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -62,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170103181203) do
     t.string   "subcategory"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
+    t.integer  "product_group_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -94,6 +100,7 @@ ActiveRecord::Schema.define(version: 20170103181203) do
 
   add_foreign_key "comments", "products"
   add_foreign_key "images", "products"
-  add_foreign_key "products", "categories"
+  add_foreign_key "product_groups", "categories"
+  add_foreign_key "products", "product_groups"
   add_foreign_key "properties", "products"
 end

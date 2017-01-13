@@ -10,6 +10,7 @@
       <thead>
         <tr>
           <td>Category</td>
+          <td>Product Group</td>
           <td>Title</td>
             <td>Price</td>
             <td>Show</td>
@@ -21,7 +22,10 @@
         <% @products.each do |f| %>
         <tr>
           <td>
-            <%= f.category.title %>
+            <%= f.product_group.category.title %>
+          </td>
+          <td>
+            <%= f.product_group.id %>
           </td>
           <td>
             <%= f.title %>

@@ -21,8 +21,9 @@ class ProductsController < ApplicationController
   def create
     Product.transaction do
       category = Category.find_by_title(product_params[:category_type])
+      @product_group = category.product_groups.create
       property_data = product_params[:property_data].split
-      @product = category.products.new(product_params)
+      @product = @product_group.products.new(product_params)
       property_data.each_slice(3) do |x|
         if x[2] == 'current'
           @product.properties.new(name: x[0], title: x[1], value: Product.last.id+1)
@@ -47,7 +48,7 @@ class ProductsController < ApplicationController
   def update
     Product.transaction do
       new_category = Category.find_by_title(product_params[:category_type])
-      @product.category = new_category
+      @product.product_group.category = new_category
       @product.properties.destroy_all
       property_data = product_params[:property_data].split
       property_data.each_slice(3) do |x|
@@ -88,7 +89,7 @@ class ProductsController < ApplicationController
     @product.images_links =  ''.tap { |x| @product.images.each {|y|
        x << y.link + "\n"
        }}
-    @product.category_type = @product.category.title
+    @product.category_type = @product.product_group.category.title
     @product.property_data =  ''.tap { |x| @product.properties.each {|y|
        x << "#{y.name} #{y.title} #{y.value}" + "\n"
        }}

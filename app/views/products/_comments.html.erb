@@ -1,5 +1,5 @@
-<strong>Comments</strong>
+<strong class="comments-title">Comments</strong>
 <% @product.comments.each do |comment| %>
-  <p><%= comment.commenter %></p>
-  <p><%= comment.body %></p>
+  <p class="comenter-name"><%= comment.commenter[0, comment.commenter.index('@')] %> &#8226; <%= comment.created_at.to_formatted_s(:short) %></p>
+  <p class="comment-body"><%= comment.body %></p>
 <%end%>

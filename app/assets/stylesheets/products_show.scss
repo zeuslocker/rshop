@@ -19,6 +19,21 @@ body {
   max-height: 400px;
   margin: auto;
  }
+ .comenter-name{
+   color: #5C616A;
+    margin: 0 0 0 5px;
+ }
+ .comments-title{
+  margin-top: 40px;
+ }
+ .comments-title strong{
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+ }
+ .comment-body{
+   margin: 0 0 10px 10px;
+ }
 .preview {
   display: -webkit-box;
   display: -webkit-flex;
@@ -107,16 +122,22 @@ body {
 .product-title, .price, .sizes, .colors {
   text-transform: capitalize;
   float: left;
-  height: 50px;
   margin-bottom: 7px;
 }
 
 .checked, .price span {
-  color: #ff9f1a; }
+  color: #ff9f1a;
+  font-size: 20px;}
+  .price{
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+  }
 
-.product-title, .rating, .product-description, .price, .vote, .sizes {
+.product-title, .rating, .price, .vote, .sizes {
   margin-bottom: 5px; }
-
+.product-description{
+  margin-bottom: 40px;
+}
 .product-title {
   margin-top: 0; }
 .c-active{

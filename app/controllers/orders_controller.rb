@@ -4,9 +4,12 @@ class OrdersController < ApplicationController
   WALLETONE_SECRET_KEY='Ваш секретный ключ от Walletone'
 
 def create
+    x = 0
+    @cart = session[:cart]
+    @cart.each{|id, q| x+= Product.find(id).price * q }
   @payment = Walletone::Payment.new(
     WMI_MERCHANT_ID:    '147573326814',
-    WMI_PAYMENT_AMOUNT:  params[:price],
+    WMI_PAYMENT_AMOUNT:  x,
     WMI_CURRENCY_ID:     980, # ISO номер валюти 980 - гривня
     WMI_DESCRIPTION: 'Оплата заказа iStore!',
     WMI_CULTURE_ID: 'ru-RU',

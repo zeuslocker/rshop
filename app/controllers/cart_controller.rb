@@ -10,7 +10,16 @@ class CartController < ApplicationController
                end
     redirect_to action: :index
   end
-
+  def update
+    p params
+    id = params[:id]
+    quantity = params[:quantity]  
+    session[:cart][id] = params[:quantity].to_i
+    respond_to do |format|
+      format.html  { redirect_to action: :index }
+    end
+  #  redirect_to action: :index
+  end
   def clear
     if !params[:id]
       session[:cart] = nil

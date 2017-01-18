@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag 'products' %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <%= stylesheet_link_tag 'products_show' %>
+<%= stylesheet_link_tag 'menu' %>
 <div class="card">
       <div class="container-fliud">
         <div class="wrapper row">
@@ -96,11 +97,28 @@
         </div>
           </div>
           <div class="row">
+            <div class="col-md-12">
+            <nav id="navigation">
+      				<ul id="main-menu">
+      					<li class="current-menu-item"><a href="http://www.freshdesignweb.com">Home</a></li>
+      					<li><a href="#" onclick="showFront()">Витрина</a></li>
+      					<li><a href="#" onclick="#showProper()">Характеристики</a></li>
+      				</ul>
+      			</nav>
+          </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" id ="front">
+                gg
+              </div>
+              <div class="col-md-12" id ="proper">
+                wp
+              </div>
+            </div>
             <div class="col-md-6 comments-title">
           <%= render 'comments' %>
           <% if user_signed_in? %>
           <%= render 'add_comment' %>
           <%end%>
-          </div>
-          </div>
             </div>
+          </div>

@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: rshop_production
-  username: rshop
-  password: <%= ENV['RSHOP_DATABASE_PASSWORD'] %>
+#  sslmode: verify-full
+#  sslrootcert: <%= Rails.root %>/config/cert.pem
+#  host: localhost
+#  sslmode: disable
+  database: rshop_production  

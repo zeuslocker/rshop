@@ -21,7 +21,11 @@ class ProductsController < ApplicationController
   def create
     Product.transaction do
       category = Category.find_by_title(product_params[:category_type])
-      @product_group = category.product_groups.create
+      if product_params[:group].to_i == 0
+        @product_group = category.product_groups.create
+      else
+        @product_group = ProductGroup.find(product_params[:group].to_i)
+      end
       property_data = product_params[:property_data].split
       @product = @product_group.products.new(product_params)
       property_data.each_slice(3) do |x|
@@ -49,6 +53,11 @@ class ProductsController < ApplicationController
     Product.transaction do
       new_category = Category.find_by_title(product_params[:category_type])
       @product.product_group.category = new_category
+      if product_params[:group].to_i == 0
+        @product.product_group = new_category.product_groups.create
+      else
+        @product.product_group = ProductGroup.find(product_params[:group].to_i)
+      end
       @product.properties.destroy_all
       property_data = product_params[:property_data].split
       property_data.each_slice(3) do |x|
@@ -75,7 +84,13 @@ class ProductsController < ApplicationController
 
 
   def destroy
-    @product.destroy
+    if @product.product_group.products.count == 1
+      product_group = @product.product_group
+      @product.destroy
+      product_group.destroy
+    else
+      @product.destroy
+    end
     respond_to do |format|
       format.html { redirect_to admin_products_path,
       notice: 'Product was successfully destroyed.' }
@@ -93,6 +108,7 @@ class ProductsController < ApplicationController
     @product.property_data =  ''.tap { |x| @product.properties.each {|y|
        x << "#{y.name} #{y.title} #{y.value}" + "\n"
        }}
+    @product.group = @product.product_group.id
   end
 
   def product_params
@@ -102,6 +118,7 @@ class ProductsController < ApplicationController
                                     :category_type,
                                     :subcategory,
                                     :images_links,
-                                    :property_data)
+                                    :property_data,
+                                    :group)
   end
 end

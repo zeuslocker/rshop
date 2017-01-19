@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  attr_accessor :images_links, :category_type, :property_data
+  attr_accessor :images_links, :category_type, :property_data, :group
   belongs_to :product_group
   belongs_to :category
   has_many :images, dependent: :destroy, autosave: true

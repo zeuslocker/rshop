@@ -2,13 +2,15 @@
 
 
 
-a {
+span {
 	color: #000000;
 	text-decoration: none;
+
 }
 
-a:hover {
+span:hover {
 	color: #000000;
+	cursor: pointer;
 }
 ol, ul {
 	list-style: none;
@@ -64,12 +66,13 @@ ol, ul {
 	margin: 0 auto;
 	font-size: 0;
 	margin: 10px 0;
+	border-bottom: 2px solid black;
 }
 
 #main-menu > li {
 	display: inline-block;
 	margin-left: 30px;
-	padding: 2px 0;
+	padding: 6px 0;
 }
 
 #main-menu > li.parent {
@@ -79,11 +82,11 @@ ol, ul {
 	background-position: left center;
 }
 
-#main-menu > li.parent > a {
+#main-menu > li.parent > span {
 	padding-left: 14px;
 }
 
-#main-menu > li > a {
+#main-menu > li > span {
 	color: #000000;
 	font-size: 14px;
 	line-height: 14px;
@@ -91,8 +94,8 @@ ol, ul {
 	text-decoration:none;
 }
 
-#main-menu > li:hover > a,
-#main-menu > li.current-menu-item > a {
+#main-menu > li:hover > span,
+#main-menu > li.current-menu-item > span {
 	color: #23dbdb;
 }
 
@@ -118,7 +121,7 @@ ul.sub-menu ul.sub-menu { /* level 3+ */
 	top: 0px;
 }
 
-ul.sub-menu > li > a {
+ul.sub-menu > li > span {
 	background-color: #333;
 	border: 1px solid #444;
 	border-top: none;
@@ -129,7 +132,7 @@ ul.sub-menu > li > a {
 	padding: 10px 12px;
 }
 
-ul.sub-menu > li > a:hover {
+ul.sub-menu > li > span:hover {
 	background-color: #2a2a2a;
 	color: #fff;
 }
@@ -142,11 +145,11 @@ ul.sub-menu ul.sub-menu > li:first-child {
 	border-top: 1px solid #444;
 }
 
-ul.sub-menu > li:last-child > a {
+ul.sub-menu > li:last-child > span {
 	border-radius: 0 0 2px 2px;
 }
 
-ul.sub-menu > li > a.parent {
+ul.sub-menu > li > span.parent {
 	background-image: url(../images/arrow.png);
 	background-size: 5px 9px;
 	background-repeat: no-repeat;
@@ -188,7 +191,7 @@ ul.sub-menu > li > a.parent {
 		margin-top: 0;
 	}
 
-	#main-menu > li > a {
+	#main-menu > li > span {
 		background-color: #333;
 		border: 1px solid #444;
 		color: #bbb;
@@ -198,7 +201,7 @@ ul.sub-menu > li > a.parent {
 		padding: 0;
 	}
 
-	#main-menu li > a:hover {
+	#main-menu li > span:hover {
 		background-color: #444;
 	}
 
@@ -207,8 +210,8 @@ ul.sub-menu > li > a.parent {
 		padding: 0;
 	}
 
-	#main-menu > li:hover > a,
-	#main-menu > li.current-menu-item > a {
+	#main-menu > li:hover > span,
+	#main-menu > li.current-menu-item > span {
 		border: 1px solid #444 !important;
 		color: #fff !important;
 	}
@@ -226,7 +229,7 @@ ul.sub-menu > li > a.parent {
 		border-top: 1px solid #444 !important;
 	}
 
-	ul.sub-menu > li > a.parent {
+	ul.sub-menu > li > span.parent {
 		background: #333 !important;
 	}
 }

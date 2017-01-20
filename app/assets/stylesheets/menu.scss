@@ -62,17 +62,21 @@ ol, ul {
 
 /* HEADER > MENU */
 #main-menu {
-	float: none;
-	margin: 0 auto;
+	float: left;
+	width: 100%;
 	font-size: 0;
 	margin: 10px 0;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid #eaeaea;
 }
 
 #main-menu > li {
+	float: left;
 	display: inline-block;
-	margin-left: 30px;
+	margin-left: 15px;
 	padding: 6px 0;
+	padding-left: 15px;
+	border-left: 2px solid #eaeaea;
+
 }
 
 #main-menu > li.parent {
@@ -92,11 +96,14 @@ ol, ul {
 	line-height: 14px;
 	padding: 30px 0;
 	text-decoration:none;
+	font-weight: bold;
+	color: #333333;
 }
 
 #main-menu > li:hover > span,
 #main-menu > li.current-menu-item > span {
-	color: #23dbdb;
+	color: #2A52BE;
+	font-weight: bold;
 }
 
 /* HEADER > MENU > DROPDOWN */

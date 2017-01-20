@@ -117,6 +117,8 @@ class ProductsController < ApplicationController
                                     :price,
                                     :category_type,
                                     :subcategory,
+                                    :spec,
+                                    :show_case,
                                     :images_links,
                                     :property_data,
                                     :group)

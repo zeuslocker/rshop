@@ -1,7 +1,7 @@
 class ProductGroup < ApplicationRecord
   belongs_to :category
-  has_many :products
-  has_many :properties, through: :products
+  has_many :products, dependent: :destroy
+  has_many :properties, through: :products, dependent: :destroy
   def find_product(properties:, element:)
     self.products.each do |f|
       count = 0

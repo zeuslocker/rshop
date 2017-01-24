@@ -11,8 +11,8 @@ class ProductGroup < ApplicationRecord
         else
           count += 1 if x.title == properties.find_by_name(x.name).title
         end
-        return f.id if count == properties.size
       end
+      return f.id if count == properties.size
     end
     return -1
   end

@@ -1,0 +1,352 @@
+/*****************globals*************/
+/* line 3, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+body {
+  font-family: 'open sans';
+  overflow-x: hidden;
+}
+
+/* line 8, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.tab-pane {
+  line-height: 25em;
+  text-align: center;
+  width: 500px;
+  height: 400px;
+}
+
+/* line 15, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.mt-5 {
+  margin-top: 5px;
+}
+
+/* line 19, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.slider-image {
+  vertical-align: middle;
+  max-width: 500px;
+  max-height: 400px;
+  margin: auto;
+}
+
+/* line 26, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.comenter-name {
+  color: #5C616A;
+  margin: 0 0 0 5px;
+}
+
+/* line 31, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.comments-title {
+  margin-top: 0px;
+}
+
+/* line 35, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.comments-title strong {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+/* line 41, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.comment-body {
+  margin: 0 0 10px 10px;
+}
+
+/* line 45, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 996px) {
+  /* line 58, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+  .preview {
+    margin-bottom: 20px;
+  }
+}
+/* line 63, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.preview-pic {
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+/* line 70, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px;
+}
+
+/* line 75, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.preview-thumbnail.nav-tabs li {
+  line-height: 25em;
+  text-align: center;
+  height: 100%;
+  padding: auto;
+}
+
+/* line 82, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.preview-thumbnail.nav-tabs li a img {
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: inherit;
+  display: block;
+  margin: auto;
+}
+
+/* line 90, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.preview-thumbnail.nav-tabs li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 100px;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+/* line 100, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.tab-content {
+  overflow: hidden;
+}
+
+/* line 104, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.tab-content img {
+  text-align: center;
+  float: center;
+  -webkit-animation-name: opacity;
+  animation-name: opacity;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+}
+
+/* line 113, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.card {
+  margin-top: 50px;
+  padding: 3em;
+  line-height: 1.5em;
+}
+
+@media screen and (min-width: 997px) {
+  /* line 120, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+  .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/* line 128, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.details {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+/* line 140, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+/* line 147, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.product-title, .price, .sizes, .colors {
+  text-transform: capitalize;
+  float: left;
+  margin-bottom: 7px;
+}
+
+/* line 153, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.checked, .price span {
+  color: #ff9f1a;
+  font-size: 20px;
+}
+
+/* line 158, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.price {
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+}
+
+/* line 163, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.product-title, .rating, .price, .vote, .sizes {
+  margin-bottom: 5px;
+}
+
+/* line 167, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.product-description {
+  margin-bottom: 40px;
+}
+
+/* line 171, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.product-title {
+  margin-top: 0;
+}
+
+/* line 175, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.c-active {
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 30px;
+  min-height: 26px;
+  border-radius: 5px;
+  padding: 6px 7px 3px 6px;
+  -webkit-box-sizing: border-box;
+  margin: 0px 8px 6px 0px;
+  border: 2px solid #7db106;
+  padding: 5px 6px 2px 5px;
+  transition: all 0s ease !important;
+  background-size: 28px 26px;
+  background-position: -1px -1px !important;
+}
+
+/* line 192, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.color {
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 30px;
+  min-height: 26px;
+  border: 1px solid #6a6464;
+  border-radius: 5px;
+  padding: 6px 7px 3px 6px;
+  -webkit-box-sizing: border-box;
+  margin: 0px 8px 6px 0px;
+  transition: all 0s ease !important;
+}
+
+/* line 206, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.color:hover {
+  border: 1px solid #7db106;
+}
+
+/* line 210, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.proper-box {
+  text-align: center;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 50px;
+  min-height: 26px;
+  border: 1px solid #6a6464;
+  border-radius: 5px;
+  padding: 6px 7px 3px 6px;
+  -webkit-box-sizing: border-box;
+  margin: 0px 8px 6px 0px;
+  transition: all 0s ease !important;
+}
+
+/* line 225, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.proper-box:hover {
+  border: 1px solid #7db106;
+}
+
+/* line 229, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.proper-box-active {
+  text-align: center;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 50px;
+  min-height: 26px;
+  border-radius: 5px;
+  padding: 6px 7px 3px 6px;
+  -webkit-box-sizing: border-box;
+  margin: 0px 8px 6px 0px;
+  border: 2px solid #7db106;
+  padding: 5px 6px 2px 5px;
+  transition: all 0s ease !important;
+  background-size: 28px 26px;
+  background-position: -1px -1px !important;
+}
+
+/* line 247, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.add-to-cart, .like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+/* line 258, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.add-to-cart:hover, .like:hover {
+  background: #b36800;
+  color: #fff;
+}
+
+/* line 263, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.not-available {
+  text-align: center;
+  line-height: 2em;
+}
+
+/* line 268, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.not-available:before {
+  font-family: fontawesome;
+  content: "\f00d";
+  color: #fff;
+}
+
+/* line 274, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.orange {
+  background: #ff9f1a;
+}
+
+/* line 278, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.green {
+  background: #85ad00;
+}
+
+/* line 282, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.blue {
+  background: #0076ad;
+}
+
+/* line 286, /home/zeus/rshop/app/assets/stylesheets/products_show.scss */
+.tooltip-inner {
+  padding: 1.3em;
+}
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,29 +1,18 @@
 <%= stylesheet_link_tag 'admin_panel' %>
-<div class="row">
-<div class="col-sm-4"
-<%= render 'admin_panel/vmenu' %>
-</div>
-<div class="col-sm-8">
-  <%= link_to new_category_path do %>
-  <button class="btn btn-success">New category</button>
-  <%end%>
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <td>Title</td>
-        <td>Edit</td>
-          <td>Delete</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories.each do |f| %>
-    <tr>
-    <td><%= link_to f.title, category_path(f) %></td>
-      <td><%= link_to 'edit', edit_category_path(f) %></td>
-        <td><%= link_to 'delete', category_path(f), method: :delete %></td>
-        <tr>
+<div class="row"><div class="col-sm-4" <%= render 'admin_panel/vmenu' %> </div> <div class="col-sm-8"> <%= link_to new_category_path do %> <button class="btn btn-success"> category</button> <%end%> <table class="table table-condensed"> <thead> <tr> <td>New Title</td>
+<td>Edit</td>
+<td>Delete</td>
+</tr>
+</thead>
+<tbody>
+<% @categories.each do |f| %>
+<tr>
+<td><%= link_to f.title, category_path(f) %></td>
+<td><%= link_to 'edit', edit_category_path(f) %></td>
+<td><%= link_to 'delete', category_path(f), method: :delete %></td>
+<tr>
     <%end%>
-  </tbody>
+</tbody>
 </table>
 </div>
 <div>

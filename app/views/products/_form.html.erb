@@ -1,8 +1,8 @@
 <p class="alert">
-<% @product.errors.full_messages.each do |msg| %>
-        <%= "#{msg};" %>
-      <% end %>
-    </p>
+    <% @product.errors.full_messages.each do |msg| %>
+    <%= "#{msg};" %>
+    <% end %>
+</p>
 <%= simple_form_for @product do |f| %>
 <%= f.input :title, autofocus: true %>
 <%= f.input :description, input_html: {rows: 6} %>

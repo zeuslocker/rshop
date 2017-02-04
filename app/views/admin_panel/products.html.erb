@@ -1,53 +1,53 @@
 <div class="row">
-  <div class="col-sm-4">
-  <%= render '/admin_panel/vmenu' %>
-  </div>
-  <div class="col-sm-8">
-    <%= link_to new_product_path do %>
-      <button class="btn btn-success">New product</button>
-    <%end%>
-    <table class='table table-condensed'>
-      <thead>
-        <tr>
-          <td>Category</td>
-          <td>Product Group</td>
-          <td>Title</td>
-            <td>Price</td>
-            <td>Show</td>
-              <td>Edit</td>
-                <td>Delete</td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @products.each do |f| %>
-        <tr>
-          <td>
-            <%= f.product_group.category.title %>
-          </td>
-          <td>
-            <%= f.product_group.id %>
-          </td>
-          <td>
-            <%= f.title %>
-          </td>
-          <td>
-            <%= f.price %>
-          </td>
-          <td>
-            <%= link_to 'show', product_path(f) %>
-          </td>
-          <td>
-            <%= link_to 'create_similar', similar_product_path(f) %>
-          </td>
-          <td>
-            <%= link_to 'edit', edit_product_path(f) %>
-          </td>
-          <td>
-            <%= link_to 'delete', f, method: :delete %>
-          </td>
-        </tr>
+    <div class="col-sm-4">
+        <%= render '/admin_panel/vmenu' %>
+    </div>
+    <div class="col-sm-8">
+        <%= link_to new_product_path do %>
+        <button class="btn btn-success">New product</button>
         <%end%>
-      </tbody>
-    </table>
-  </div>
+        <table class='table table-condensed'>
+            <thead>
+                <tr>
+                    <td>Category</td>
+                    <td>Product Group</td>
+                    <td>Title</td>
+                    <td>Price</td>
+                    <td>Show</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |f| %>
+                <tr>
+                    <td>
+                        <%= f.product_group.category.title %>
+                    </td>
+                    <td>
+                        <%= f.product_group.id %>
+                    </td>
+                    <td>
+                        <%= f.title %>
+                    </td>
+                    <td>
+                        <%= f.price %>
+                    </td>
+                    <td>
+                        <%= link_to 'show', product_path(f) %>
+                    </td>
+                    <td>
+                        <%= link_to 'create_similar', similar_product_path(f) %>
+                    </td>
+                    <td>
+                        <%= link_to 'edit', edit_product_path(f) %>
+                    </td>
+                    <td>
+                        <%= link_to 'delete', f, method: :delete %>
+                    </td>
+                </tr>
+                <%end%>
+            </tbody>
+        </table>
+    </div>
 </div>

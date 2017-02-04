@@ -1,3 +1,18 @@
+  var showPayToggle = false;
+$(document).ready(function(){
+  if(showPayToggle == false){
+  $("#payForm").hide();
+  }
+});
+function checkout(elem){
+  if(showPayToggle == false){
+    $("#payForm").show();
+    $("#paySubmitBtn").hide();
+    showPayToggle = true;
+  }else{
+    $("#submitBtn").click();
+  }
+}
 function changePrice(id, value){
   function renderTotal(){
     var elem = document.getElementById("sub"+id);

@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rshop</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Rshop</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-<body class='<%= controller.controller_name %>'>
+    </head>
+
+    <body class='<%= controller.controller_name %>'>
+
+        <header class="bs-docs-nav navbar navbar-static-top" id="top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#bs-navbar" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <%= link_to 'IStore', root_path, class: 'navbar-brand'%>
+                </div>
+                <nav class="collapse navbar-collapse" id="bs-navbar">
+                    <ul class="nav navbar-nav">
+                        <% Category.all.each do |f|  %>
+                        <li><%= link_to f.title, f %></li>
+                        <%end%>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="margin-right:100px;"><%=link_to cart_path do %>
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            Cart
+                            <%end%>
+                        </li>
+                        <% if user_signed_in? %>
+                        <span class="navbar-text"><%= current_user.email[0, current_user.email.index('@')] %></span>
+                        <li>
+                            <%= link_to destroy_user_session_path, method: :delete do %>
+                            <span class="glyphicon glyphicon-log-out"></span>
+                            Sign out
+                            <%end%>
+                        </li>
+                        <%else%>
+                        <li><%= link_to new_user_registration_path do %>
+                            <span class="glyphicon glyphicon-user"></span>
+                            Sign up
+                            <%end%>
+                        </li>
+                        <li><%= link_to new_user_session_path do %>
+                            <span class="glyphicon glyphicon-log-in"></span>
+                            Sign in
+                            <%end%>
+                        </li>
+                        <%end%>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!--
   <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
   <div class="row navbar-inner">
@@ -45,10 +97,10 @@
     </ul>
   </div>
   </nav>
-  <div id="main_wrap" class="container">
-    <p class="notice" style="color: #0000"><%= notice %></p>
-    <p class="alert" style="color: #0000"><%= alert %></p>
-    <%= yield %>
-    <div>
-  </body>
-</html>
+-->
+        <div id="main_wrap" class="container">
+            <p class="notice" style="color: #0000"><%= notice %></p>
+            <p class="alert" style="color: #0000"><%= alert %></p>
+            <%= yield %>
+            <div></body>
+        </html>

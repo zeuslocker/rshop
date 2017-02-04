@@ -1,49 +1,51 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel" >
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
+    </ol>
+    <div class="carousel-inner" role="listbox">
         <div class="item active">
-        <%= image_tag 'main_slider/og.png', class: 'first-slide slider-img', alt: 'First slide'%>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1> iPhone 7</h1>
-              <p>В iPhone 7 все важнейшие аспекты iPhone значительно улучшены. Это принципиально новая система камер для фото- и видеосъёмки.</p>
-              <p><%= link_to 'Купить', 'products/2', class: 'btn btn-lg btn-primary', role: 'button' %></p>
+            <%= image_tag 'main_slider/og.png', class: 'first-slide slider-img', alt: 'First slide'%>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>
+                        iPhone 7</h1>
+                    <p>В iPhone 7 все важнейшие аспекты iPhone значительно улучшены. Это принципиально новая система камер для фото- и видеосъёмки.</p>
+                    <p><%= link_to 'Купить', 'products/2', class: 'btn btn-lg btn-primary', role: 'button' %></p>
 
+                </div>
             </div>
-          </div>
         </div>
         <div class="item">
-        <%= image_tag 'main_slider/macbooki.jpg', class: 'second-slide slider-img', alt: 'Second slide'%>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Macbook</h1>
-              <p>Он стал ещё быстрее и мощнее. Легче и тоньше. У него самый яркий экран и лучшая цветопередача среди всех ноутбуков Mac. </p>
-              <p><%= link_to 'Купить', 'products/5', class: 'btn btn-lg btn-primary', role: 'button' %></p>
+            <%= image_tag 'main_slider/macbooki.jpg', class: 'second-slide slider-img', alt: 'Second slide'%>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Macbook</h1>
+                    <p>Он стал ещё быстрее и мощнее. Легче и тоньше. У него самый яркий экран и лучшая цветопередача среди всех ноутбуков Mac.
+                    </p>
+                    <p><%= link_to 'Купить', 'products/5', class: 'btn btn-lg btn-primary', role: 'button' %></p>
+                </div>
             </div>
-          </div>
         </div>
         <div class="item slider-img">
-        <%= image_tag 'main_slider/watch.png', class: 'third-slide slider-img', alt: 'Third slide'%>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Watch</h1>
-              <p>Встроенный GPS‑модуль. Водонепроницаемость на глубине до 50 метров.1 Новый невероятно быстрый двухъядерный процессор. И в два раза более яркий дисплей.</p>
-              <p><%= link_to 'Купить', 'products/3', class: 'btn btn-lg btn-primary', role: 'button' %></p>
+            <%= image_tag 'main_slider/watch.png', class: 'third-slide slider-img', alt: 'Third slide'%>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Watch</h1>
+                    <p>Встроенный GPS‑модуль. Водонепроницаемость на глубине до 50 метров.1 Новый невероятно быстрый двухъядерный процессор. И в два раза более яркий дисплей.</p>
+                    <p><%= link_to 'Купить', 'products/3', class: 'btn btn-lg btn-primary', role: 'button' %></p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a>
-    </div>
+    </a>
+</div>

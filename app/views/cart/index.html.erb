@@ -73,7 +73,10 @@
                         </strong>
                     </td>
                     <td>
-                        <%= button_tag 'Оплатить', onclick: 'checkout(this)', id: 'paySubmitBtn', class: 'btn btn-success btn-block' %>
+                        <%= button_tag 'Оплатить', onclick: 'checkout(this)',
+                        id: 'paySubmitBtn', 'data-toggle': 'popover', 'data-placement': 'bottom',
+                         'data-content': 'Сначала добавьте товары', 'data-animation': 'true',
+                          class: 'btn btn-success btn-block' %>
                     </td>
                 </tr>
             </tfoot>

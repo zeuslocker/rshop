@@ -1,31 +1,45 @@
+
   var showPayToggle = false;
-$(document).ready(function(){
-  if(showPayToggle == false){
-  $("#payForm").hide();
-  }
-});
-function checkout(elem){
-  if(showPayToggle == false){
-    $("#payForm").show();
-    $("#paySubmitBtn").hide();
-    showPayToggle = true;
-  }else{
-    $("#submitBtn").click();
-  }
-}
-function changePrice(id, value){
-  function renderTotal(){
-    var elem = document.getElementById("sub"+id);
-    var tmp = elem.innerHTML.substring(1, elem.innerHTML.length);
-    elem.innerHTML = "$"+(parseFloat(elem.getAttribute("name")) * value).toFixed(1);
-    tmp = parseFloat(elem.getAttribute("name")) * value - tmp;
-    $("#total-price").text(parseFloat(parseFloat($("#total-price").text())+tmp).toFixed(1));
+  ready = function() {
+      showPayToggle = false;
+      $("#payForm").hide();
+      if (parseFloat($("#total-price").text()) == 0) {
+      $('#paySubmitBtn').attr('disabled', 'true');
+      }
   };
-  $.ajax({
-    url: "cart/update",
-    type: "GET",
-    data: ({id: id, quantity: value}),
-    dataType: 'html',
-    success: renderTotal
-  });
-};
+  $(document).ready(ready);
+  $(document).on("page:load", ready);
+  $(document).on("turbolinks:load", ready);
+  function checkout(elem) {
+      if (showPayToggle == false) {
+          if (parseFloat($("#total-price").text()) == 0) {
+          $('#paySubmitBtn').attr('disabled', 'true');
+          } else {
+              $("#payForm").show();
+              $("#paySubmitBtn").hide();
+              showPayToggle = true;
+          }
+      } else {
+          $("#submitBtn").click();
+      }
+  }
+
+  function changePrice(id, value) {
+      function renderTotal() {
+          var elem = document.getElementById("sub" + id);
+          var tmp = elem.innerHTML.substring(1, elem.innerHTML.length);
+          elem.innerHTML = "$" + (parseFloat(elem.getAttribute("name")) * value).toFixed(1);
+          tmp = parseFloat(elem.getAttribute("name")) * value - tmp;
+          $("#total-price").text(parseFloat(parseFloat($("#total-price").text()) + tmp).toFixed(1));
+      };
+      $.ajax({
+          url: "cart/update",
+          type: "GET",
+          data: ({
+              id: id,
+              quantity: value
+          }),
+          dataType: 'html',
+          success: renderTotal
+      });
+  };

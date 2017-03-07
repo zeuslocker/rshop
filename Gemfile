@@ -9,6 +9,7 @@ gem 'newrelic_rpm'
 gem 'dalli'
 gem 'seed_dump'
 gem 'image_optimizer'
+gem 'pry'
 gem 'rails_12factor', group: :production
 #git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix' do
 #  gem 'compass-core'

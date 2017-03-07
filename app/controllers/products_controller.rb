@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show]
+#  before_action :authenticate_admin!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy, :similar]
-
+  protect_from_forgery with: :null_session
+  skip_before_filter :verify_authenticity_token
   def index
     @products = Product.all
   end
@@ -30,19 +31,19 @@ class ProductsController < ApplicationController
       @product = @product_group.products.new(product_params)
       property_data.each_slice(3) do |x|
         if x[2] == 'current'
-          @product.properties.new(name: x[0], title: x[1], value: Product.last.id+1)
+          @product.properties.new(name: x[0], title: x[1], value: Product.last.id + 1)
         else
           @product.properties.new(name: x[0], title: x[1], value: x[2])
         end
       end
-      product_params[:images_links].split(/[\r\n]+/).each do |x|
+      product_params[:images_links].split('|').each do |x|
         @product.images.new(link: x)
       end
       respond_to do |format|
         if @product.save
           format.html { redirect_to admin_products_path }
         else
-          flash[:notice] = "#{@product.errors.messages}"
+          flash[:notice] = @product.errors.messages.to_s
           format.html { render :new }
         end
       end
@@ -75,13 +76,12 @@ class ProductsController < ApplicationController
         if @product.update(product_params)
           format.html { redirect_to admin_products_path }
         else
-          flash[:alert] = "#{@product.errors.messages}"
+          flash[:alert] = @product.errors.messages.to_s
           format.html { render :edit }
         end
       end
     end
   end
-
 
   def destroy
     if @product.product_group.products.count == 1
@@ -92,8 +92,10 @@ class ProductsController < ApplicationController
       @product.destroy
     end
     respond_to do |format|
-      format.html { redirect_to admin_products_path,
-      notice: 'Product was successfully destroyed.' }
+      format.html do
+        redirect_to admin_products_path,
+                    notice: 'Product was successfully destroyed.'
+      end
     end
   end
 
@@ -101,13 +103,17 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
-    @product.images_links =  ''.tap { |x| @product.images.each {|y|
-       x << y.link + "\n"
-       }}
+    @product.images_links = ''.tap { |x|
+      @product.images.each do |y|
+        x << y.link + "\n"
+      end
+    }
     @product.category_type = @product.product_group.category.title
-    @product.property_data =  ''.tap { |x| @product.properties.each {|y|
-       x << "#{y.name} #{y.title} #{y.value}" + "\n"
-       }}
+    @product.property_data = ''.tap { |x|
+      @product.properties.each do |y|
+        x << "#{y.name} #{y.title} #{y.value}" + "\n"
+      end
+    }
     @product.group = @product.product_group.id
   end
 
